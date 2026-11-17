@@ -9,7 +9,7 @@ export const bonneAffaire: VideoData = {
   id: 'bonne-affaire',
   title: 'Prix affiché = arnaque ?',
   voice: {
-    edgeVoice: 'fr-FR-RemyMultilingualNeural',
+    edgeVoice: 'fr-FR-VivienneMultilingualNeural',
     rate: '+8%',
   },
   script: [
