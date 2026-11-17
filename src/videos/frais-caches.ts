@@ -9,8 +9,8 @@ export const fraisCaches: VideoData = {
   id: 'frais-caches',
   title: 'Les 3 frais cachés quand tu achètes ton premier appart',
   voice: {
-    edgeVoice: 'fr-FR-HenriNeural',
-    rate: '+10%',
+    edgeVoice: 'fr-FR-DeniseNeural',
+    rate: '+14%',
   },
   script: [
     'Trois frais cachés sur ton premier appart.',

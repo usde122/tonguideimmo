@@ -1,626 +1,626 @@
 {
- "duration": 35.004,
- "voice": "edge-tts:fr-FR-HenriNeural:+10%",
+ "duration": 35.579,
+ "voice": "edge-tts:fr-FR-DeniseNeural:+14%",
  "words": [
   {
    "text": "Trois",
    "start": 0.03,
-   "end": 0.257
+   "end": 0.249
   },
   {
    "text": "frais",
-   "start": 0.269,
-   "end": 0.428
+   "start": 0.26,
+   "end": 0.436
   },
   {
    "text": "cachés",
-   "start": 0.439,
-   "end": 0.769
+   "start": 0.447,
+   "end": 0.754
   },
   {
    "text": "sur",
-   "start": 0.78,
-   "end": 0.95
+   "start": 0.765,
+   "end": 0.929
   },
   {
    "text": "ton",
-   "start": 0.962,
-   "end": 1.11
+   "start": 0.94,
+   "end": 1.083
   },
   {
    "text": "premier",
-   "start": 1.121,
-   "end": 1.36
+   "start": 1.094,
+   "end": 1.379
   },
   {
    "text": "appart.",
-   "start": 1.371,
-   "end": 1.848
+   "start": 1.39,
+   "end": 1.938
   },
   {
    "text": "Personne",
-   "start": 2.078,
-   "end": 2.465
+   "start": 2.168,
+   "end": 2.552
   },
   {
    "text": "ne",
-   "start": 2.476,
-   "end": 2.578
+   "start": 2.563,
+   "end": 2.672
   },
   {
    "text": "te",
-   "start": 2.59,
-   "end": 2.68
+   "start": 2.683,
+   "end": 2.782
   },
   {
    "text": "les",
-   "start": 2.692,
-   "end": 2.771
+   "start": 2.793,
+   "end": 2.881
   },
   {
    "text": "annonce.",
-   "start": 2.783,
-   "end": 3.374
+   "start": 2.892,
+   "end": 3.429
   },
   {
    "text": "Un :",
-   "start": 3.604,
-   "end": 3.797
+   "start": 3.659,
+   "end": 3.889
   },
   {
    "text": "la",
-   "start": 4.047,
-   "end": 4.24
+   "start": 4.139,
+   "end": 4.304
   },
   {
    "text": "garantie",
-   "start": 4.251,
-   "end": 4.638
+   "start": 4.315,
+   "end": 4.731
   },
   {
    "text": "du",
-   "start": 4.649,
-   "end": 4.751
+   "start": 4.742,
+   "end": 4.841
   },
   {
    "text": "prêt.",
-   "start": 4.763,
-   "end": 5.07
+   "start": 4.852,
+   "end": 5.148
   },
   {
    "text": "Ta",
-   "start": 5.3,
-   "end": 5.447
+   "start": 5.378,
+   "end": 5.52
   },
   {
    "text": "banque",
-   "start": 5.459,
-   "end": 5.675
+   "start": 5.531,
+   "end": 5.784
   },
   {
    "text": "peut",
-   "start": 5.686,
-   "end": 5.8
+   "start": 5.795,
+   "end": 5.904
   },
   {
    "text": "exiger",
-   "start": 5.811,
-   "end": 6.209
+   "start": 5.915,
+   "end": 6.332
   },
   {
    "text": "une",
-   "start": 6.22,
-   "end": 6.311
+   "start": 6.343,
+   "end": 6.452
   },
   {
    "text": "caution",
-   "start": 6.322,
-   "end": 6.64
+   "start": 6.463,
+   "end": 6.836
   },
   {
    "text": "ou",
-   "start": 6.652,
-   "end": 6.697
+   "start": 6.847,
+   "end": 6.935
   },
   {
    "text": "une",
-   "start": 6.709,
-   "end": 6.8
+   "start": 6.946,
+   "end": 7.044
   },
   {
    "text": "hypothèque,",
-   "start": 6.811,
-   "end": 7.288
+   "start": 7.055,
+   "end": 7.516
   },
   {
    "text": "et",
-   "start": 7.561,
-   "end": 7.606
+   "start": 7.812,
+   "end": 7.834
   },
   {
    "text": "ça",
-   "start": 7.618,
-   "end": 7.743
+   "start": 7.845,
+   "end": 7.987
   },
   {
    "text": "se",
-   "start": 7.754,
-   "end": 7.868
+   "start": 7.998,
+   "end": 8.13
   },
   {
    "text": "paie.",
-   "start": 7.879,
-   "end": 8.129
+   "start": 8.141,
+   "end": 8.371
   },
   {
    "text": "Bonne",
-   "start": 8.359,
-   "end": 8.643
+   "start": 8.601,
+   "end": 8.864
   },
   {
    "text": "nouvelle :",
-   "start": 8.655,
-   "end": 9.121
+   "start": 8.875,
+   "end": 9.413
   },
   {
    "text": "la",
-   "start": 9.371,
-   "end": 9.564
+   "start": 9.663,
+   "end": 9.86
   },
   {
    "text": "caution",
-   "start": 9.575,
-   "end": 9.882
+   "start": 9.871,
+   "end": 10.2
   },
   {
    "text": "coûte",
-   "start": 9.893,
-   "end": 10.109
+   "start": 10.211,
+   "end": 10.397
   },
   {
    "text": "moins",
-   "start": 10.121,
-   "end": 10.291
+   "start": 10.408,
+   "end": 10.584
   },
   {
    "text": "cher,",
-   "start": 10.302,
-   "end": 10.643
+   "start": 10.595,
+   "end": 10.957
   },
   {
    "text": "et",
-   "start": 10.961,
-   "end": 10.996
+   "start": 11.307,
+   "end": 11.34
   },
   {
    "text": "tu",
-   "start": 11.007,
-   "end": 11.143
+   "start": 11.351,
+   "end": 11.483
   },
   {
    "text": "peux",
-   "start": 11.155,
-   "end": 11.291
+   "start": 11.494,
+   "end": 11.625
   },
   {
    "text": "en",
-   "start": 11.302,
-   "end": 11.382
+   "start": 11.636,
+   "end": 11.713
   },
   {
    "text": "récupérer",
-   "start": 11.393,
-   "end": 11.871
+   "start": 11.724,
+   "end": 12.228
   },
   {
    "text": "une",
-   "start": 11.882,
-   "end": 11.984
+   "start": 12.239,
+   "end": 12.338
   },
   {
    "text": "partie",
-   "start": 11.996,
-   "end": 12.314
+   "start": 12.349,
+   "end": 12.634
   },
   {
    "text": "à",
-   "start": 12.325,
-   "end": 12.348
+   "start": 12.645,
+   "end": 12.667
   },
   {
    "text": "la",
-   "start": 12.359,
-   "end": 12.45
+   "start": 12.678,
+   "end": 12.777
   },
   {
    "text": "fin",
-   "start": 12.461,
-   "end": 12.609
+   "start": 12.788,
+   "end": 12.941
   },
   {
    "text": "du",
-   "start": 12.621,
-   "end": 12.711
+   "start": 12.952,
+   "end": 13.04
   },
   {
    "text": "prêt.",
-   "start": 12.723,
-   "end": 13.018
+   "start": 13.051,
+   "end": 13.336
   },
   {
    "text": "Deux :",
-   "start": 13.248,
-   "end": 13.601
+   "start": 13.566,
+   "end": 13.906
   },
   {
    "text": "la",
-   "start": 13.851,
-   "end": 14.021
+   "start": 14.156,
+   "end": 14.298
   },
   {
    "text": "taxe",
-   "start": 14.032,
-   "end": 14.26
+   "start": 14.309,
+   "end": 14.594
   },
   {
    "text": "foncière.",
-   "start": 14.271,
-   "end": 14.839
+   "start": 14.605,
+   "end": 15.219
   },
   {
    "text": "Le",
-   "start": 15.069,
-   "end": 15.24
+   "start": 15.449,
+   "end": 15.57
   },
   {
    "text": "vendeur",
-   "start": 15.251,
-   "end": 15.546
+   "start": 15.581,
+   "end": 15.943
   },
   {
    "text": "la",
-   "start": 15.558,
-   "end": 15.649
+   "start": 15.954,
+   "end": 16.052
   },
   {
    "text": "paie",
-   "start": 15.66,
-   "end": 15.785
+   "start": 16.063,
+   "end": 16.195
   },
   {
    "text": "pour",
-   "start": 15.796,
-   "end": 15.967
+   "start": 16.206,
+   "end": 16.37
   },
   {
    "text": "toute",
-   "start": 15.978,
-   "end": 16.171
+   "start": 16.381,
+   "end": 16.568
   },
   {
    "text": "l'année,",
-   "start": 16.183,
-   "end": 16.49
+   "start": 16.579,
+   "end": 16.875
   },
   {
    "text": "alors",
-   "start": 16.762,
-   "end": 17.024
+   "start": 17.171,
+   "end": 17.445
   },
   {
    "text": "chez",
-   "start": 17.035,
-   "end": 17.137
+   "start": 17.456,
+   "end": 17.555
   },
   {
    "text": "le",
-   "start": 17.149,
-   "end": 17.206
+   "start": 17.566,
+   "end": 17.653
   },
   {
    "text": "notaire,",
-   "start": 17.217,
-   "end": 17.694
+   "start": 17.664,
+   "end": 18.114
   },
   {
    "text": "tu",
-   "start": 17.933,
-   "end": 18.046
+   "start": 18.399,
+   "end": 18.52
   },
   {
    "text": "lui",
-   "start": 18.058,
-   "end": 18.183
+   "start": 18.531,
+   "end": 18.629
   },
   {
    "text": "rembourses",
-   "start": 18.194,
-   "end": 18.535
+   "start": 18.64,
+   "end": 19.024
   },
   {
    "text": "ta",
-   "start": 18.546,
-   "end": 18.671
+   "start": 19.035,
+   "end": 19.156
   },
   {
    "text": "part.",
-   "start": 18.683,
-   "end": 19.08
+   "start": 19.167,
+   "end": 19.55
   },
   {
    "text": "Exemple",
-   "start": 19.31,
-   "end": 19.742
+   "start": 19.78,
+   "end": 20.175
   },
   {
    "text": "officiel :",
-   "start": 19.754,
-   "end": 20.31
+   "start": 20.186,
+   "end": 20.811
   },
   {
    "text": "mille",
-   "start": 20.56,
-   "end": 20.81
+   "start": 21.061,
+   "end": 21.28
   },
   {
    "text": "cinq",
-   "start": 20.822,
-   "end": 20.992
+   "start": 21.291,
+   "end": 21.445
   },
   {
    "text": "cents",
-   "start": 21.004,
-   "end": 21.151
+   "start": 21.456,
+   "end": 21.598
   },
   {
    "text": "euros",
-   "start": 21.163,
-   "end": 21.379
+   "start": 21.609,
+   "end": 21.862
   },
   {
    "text": "de",
-   "start": 21.39,
-   "end": 21.492
+   "start": 21.872,
+   "end": 21.971
   },
   {
    "text": "taxe,",
-   "start": 21.504,
-   "end": 21.958
+   "start": 21.982,
+   "end": 22.432
   },
   {
    "text": "vente",
-   "start": 22.178,
-   "end": 22.485
+   "start": 22.652,
+   "end": 22.992
   },
   {
    "text": "le",
-   "start": 22.496,
-   "end": 22.587
+   "start": 23.003,
+   "end": 23.112
   },
   {
    "text": "vingt",
-   "start": 22.599,
-   "end": 22.746
+   "start": 23.123,
+   "end": 23.277
   },
   {
    "text": "et",
-   "start": 22.758,
-   "end": 22.917
+   "start": 23.288,
+   "end": 23.43
   },
   {
    "text": "un",
-   "start": 22.928,
-   "end": 22.996
+   "start": 23.441,
+   "end": 23.529
   },
   {
    "text": "mai,",
-   "start": 23.008,
-   "end": 23.224
+   "start": 23.54,
+   "end": 23.704
   },
   {
    "text": "neuf",
-   "start": 23.485,
-   "end": 23.667
+   "start": 24.044,
+   "end": 24.209
   },
   {
    "text": "cent",
-   "start": 23.678,
-   "end": 23.815
+   "start": 24.22,
+   "end": 24.34
   },
   {
    "text": "vingt",
-   "start": 23.826,
-   "end": 23.951
+   "start": 24.351,
+   "end": 24.516
   },
   {
    "text": "euros",
-   "start": 23.962,
-   "end": 24.167
+   "start": 24.527,
+   "end": 24.724
   },
   {
    "text": "pour",
-   "start": 24.178,
-   "end": 24.337
+   "start": 24.735,
+   "end": 24.91
   },
   {
    "text": "toi.",
-   "start": 24.349,
-   "end": 24.655
+   "start": 24.921,
+   "end": 25.217
   },
   {
    "text": "Trois :",
-   "start": 24.886,
-   "end": 25.295
+   "start": 25.447,
+   "end": 25.864
   },
   {
    "text": "le",
-   "start": 25.545,
-   "end": 25.749
+   "start": 26.114,
+   "end": 26.29
   },
   {
    "text": "fonds",
-   "start": 25.761,
-   "end": 25.897
+   "start": 26.3,
+   "end": 26.443
   },
   {
    "text": "de",
-   "start": 25.908,
-   "end": 25.999
+   "start": 26.454,
+   "end": 26.564
   },
   {
    "text": "travaux",
-   "start": 26.011,
-   "end": 26.295
+   "start": 26.575,
+   "end": 26.86
   },
   {
    "text": "de",
-   "start": 26.306,
-   "end": 26.374
+   "start": 26.871,
+   "end": 26.958
   },
   {
    "text": "la",
-   "start": 26.386,
-   "end": 26.454
+   "start": 26.969,
+   "end": 27.057
   },
   {
    "text": "copro.",
-   "start": 26.465,
-   "end": 26.942
+   "start": 27.068,
+   "end": 27.539
   },
   {
    "text": "Chaque",
-   "start": 27.172,
-   "end": 27.491
+   "start": 27.77,
+   "end": 28.033
   },
   {
    "text": "année,",
-   "start": 27.502,
-   "end": 27.775
+   "start": 28.044,
+   "end": 28.296
   },
   {
    "text": "au",
-   "start": 28.036,
-   "end": 28.081
+   "start": 28.625,
+   "end": 28.658
   },
   {
    "text": "moins",
-   "start": 28.093,
-   "end": 28.275
+   "start": 28.669,
+   "end": 28.844
   },
   {
    "text": "cinq",
-   "start": 28.286,
-   "end": 28.525
+   "start": 28.855,
+   "end": 29.173
   },
   {
    "text": "pour",
-   "start": 28.536,
-   "end": 28.695
+   "start": 29.184,
+   "end": 29.348
   },
   {
    "text": "cent",
-   "start": 28.706,
-   "end": 28.82
+   "start": 29.359,
+   "end": 29.48
   },
   {
    "text": "du",
-   "start": 28.831,
-   "end": 28.934
+   "start": 29.491,
+   "end": 29.612
   },
   {
    "text": "budget",
-   "start": 28.945,
-   "end": 29.195
+   "start": 29.623,
+   "end": 29.908
   },
   {
    "text": "de",
-   "start": 29.206,
-   "end": 29.286
+   "start": 29.919,
+   "end": 29.995
   },
   {
    "text": "la",
-   "start": 29.297,
-   "end": 29.366
+   "start": 30.006,
+   "end": 30.094
   },
   {
    "text": "copro.",
-   "start": 29.377,
-   "end": 29.854
+   "start": 30.105,
+   "end": 30.555
   },
   {
    "text": "Et",
-   "start": 30.084,
-   "end": 30.221
+   "start": 30.785,
+   "end": 30.883
   },
   {
    "text": "quand",
-   "start": 30.232,
-   "end": 30.38
+   "start": 30.894,
+   "end": 31.037
   },
   {
    "text": "tu",
-   "start": 30.391,
-   "end": 30.527
+   "start": 31.048,
+   "end": 31.168
   },
   {
    "text": "revends,",
-   "start": 30.539,
-   "end": 30.88
+   "start": 31.179,
+   "end": 31.519
   },
   {
    "text": "tu",
-   "start": 31.152,
-   "end": 31.266
+   "start": 31.738,
+   "end": 31.848
   },
   {
    "text": "ne",
-   "start": 31.277,
-   "end": 31.346
+   "start": 31.859,
+   "end": 31.958
   },
   {
    "text": "le",
-   "start": 31.357,
-   "end": 31.425
+   "start": 31.969,
+   "end": 32.056
   },
   {
    "text": "récupères",
-   "start": 31.436,
-   "end": 31.857
+   "start": 32.067,
+   "end": 32.473
   },
   {
    "text": "pas.",
-   "start": 31.868,
-   "end": 32.107
+   "start": 32.484,
+   "end": 32.671
   },
   {
    "text": "Recherche",
-   "start": 32.337,
-   "end": 32.826
+   "start": 32.901,
+   "end": 33.361
   },
   {
    "text": "personnalisée",
-   "start": 32.837,
-   "end": 33.428
+   "start": 33.372,
+   "end": 34.041
   },
   {
    "text": "gratuite,",
-   "start": 33.439,
-   "end": 33.882
+   "start": 34.052,
+   "end": 34.512
   },
   {
    "text": "lien",
-   "start": 34.166,
-   "end": 34.36
+   "start": 34.765,
+   "end": 34.951
   },
   {
    "text": "en",
-   "start": 34.371,
-   "end": 34.428
+   "start": 34.962,
+   "end": 35.05
   },
   {
    "text": "bio.",
-   "start": 34.439,
-   "end": 34.769
+   "start": 35.061,
+   "end": 35.346
   }
  ]
 }
