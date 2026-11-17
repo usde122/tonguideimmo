@@ -59,8 +59,16 @@ export type Block =
       delta: string;
       deltaAt: Cue;
     }
-  /** Bouton d'abonnement animé. */
-  | {kind: 'cta'; button: string; caption: string};
+  /** Bouton animé (abonnement, lien en bio…). `symbol` = pictogramme dans la pastille. */
+  | {kind: 'cta'; button: string; caption: string; symbol?: 'plus' | 'arrow'}
+  /** Pictogramme seul (avec légende facultative). */
+  | {kind: 'icon'; name: IconName; size?: number; tone?: Tone; label?: string}
+  /** Ligne de « ticket de caisse » : libellé à gauche, montant à droite (qui peut arriver à `valueAt`). */
+  | {kind: 'line'; label: string; value?: string; tone?: Tone; valueAt?: Cue}
+  /** Tampon penché, ex. « NON RÉCUPÉRABLE ». */
+  | {kind: 'stamp'; text: string; tone?: Tone};
+
+export type IconName = 'shield' | 'receipt' | 'building' | 'key' | 'calendar' | 'bank' | 'coins' | 'arrow';
 
 export type Beat = {
   /** Instant d'apparition. */
@@ -94,6 +102,20 @@ export type VideoData = {
   /** Texte EXACT de la voix off, un paragraphe par entrée. */
   script: string[];
   scenes: Scene[];
+  /** Sources vérifiées de chaque chiffre affiché (liste livrée avec la vidéo). */
+  sources?: SourceRef[];
+};
+
+export type SourceRef = {
+  /** Chiffre ou affirmation tel qu'affiché/dit. */
+  claim: string;
+  /** Nom court de la source. */
+  source: string;
+  url: string;
+  /** Date de vérification de la page (« Vérifié le … » ou date de lecture). */
+  checked: string;
+  /** Extrait exact de la page. */
+  quote: string;
 };
 
 export type Word = {text: string; start: number; end: number};

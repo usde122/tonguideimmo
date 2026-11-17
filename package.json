@@ -5,6 +5,7 @@
   "scripts": {
     "studio": "remotion studio",
     "voice": "tsx scripts/voice.ts",
+    "rythme": "tsx scripts/rythme.ts",
     "render": "tsx scripts/render.ts",
     "check": "tsx scripts/check.ts",
     "typecheck": "tsc --noEmit"

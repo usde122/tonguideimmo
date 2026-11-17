@@ -13,12 +13,13 @@ export type VideoProps = {
   music: boolean;
 };
 
-const SceneView: React.FC<{scene: ResolvedScene; words: WordsFile}> = ({scene, words}) => {
+const SceneView: React.FC<{scene: ResolvedScene; words: WordsFile; isLast: boolean}> = ({scene, words, isLast}) => {
   const frame = useCurrentFrame();
   const absolute = frame + scene.from;
   const duration = scene.to - scene.from;
   const enter = interpolate(frame, [0, 6], [0, 1], {extrapolateRight: 'clamp'});
-  const exit = interpolate(frame, [duration - 5, duration], [1, 0], {extrapolateLeft: 'clamp'});
+  // La dernière séquence (appel à l'action) reste pleinement visible jusqu'à la dernière image.
+  const exit = isLast ? 1 : interpolate(frame, [duration - 5, duration], [1, 0], {extrapolateLeft: 'clamp'});
   // Groupe visible = celui du dernier beat apparu.
   const started = scene.beats.filter((b) => absolute >= b.frame);
   const group = started.length ? started[started.length - 1].group : 0;
@@ -102,9 +103,9 @@ export const VideoComposition: React.FC<VideoProps> = ({video, words, music}) =>
 
       {words ? (
         <>
-          {scenes.map((s) => (
+          {scenes.map((s, i) => (
             <Sequence key={s.id} from={s.from} durationInFrames={s.to - s.from} name={s.id} layout="none">
-              <SceneView scene={s} words={words} />
+              <SceneView scene={s} words={words} isLast={i === scenes.length - 1} />
             </Sequence>
           ))}
           <Subtitles words={words.words} />

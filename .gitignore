@@ -1,3 +1,6 @@
 node_modules/
 .cache/
+.venv/
+__pycache__/
 public/shared/music.mp3
+out/.*

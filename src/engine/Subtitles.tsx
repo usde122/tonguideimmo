@@ -5,8 +5,9 @@ import type {Word} from './types';
 
 type Group = {words: Word[]; start: number; end: number};
 
-const MAX_WORDS = 4;
-const MAX_CHARS = 18;
+/** Règle de la skill : 3 mots au plus par groupe. */
+export const MAX_WORDS = 3;
+const MAX_CHARS = 20;
 
 /** Texte affiché : sans la ponctuation de fin (sauf ? et !). */
 const clean = (t: string) => t.replace(/\s*[,.:;]+$/u, '').replace(/\s+:/u, '');
@@ -79,8 +80,8 @@ export const Subtitles: React.FC<{words: Word[]}> = ({words}) => {
               style={{
                 padding: '2px 14px 6px',
                 borderRadius: 16,
-                background: active ? colors.accent : 'transparent',
-                color: active ? '#fff' : colors.ink,
+                background: active ? colors.highlight : 'transparent',
+                color: colors.ink,
                 whiteSpace: 'nowrap',
               }}
             >

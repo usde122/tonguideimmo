@@ -10,6 +10,8 @@ export const colors = {
   ink: '#0B1F3A',
   muted: '#6B7686',
   loss: '#D62828',
+  /** Surlignage jaune du mot prononcé dans les sous-titres. */
+  highlight: '#FFD60A',
 };
 
 export const font = "'Montserrat', 'Inter', system-ui, sans-serif";

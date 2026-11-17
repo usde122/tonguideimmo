@@ -1,22 +1,33 @@
-# Ton Guide Immo — vidéos TikTok/Reels
+# Ton Guide Immo — reels TikTok / Instagram / Snapchat / Facebook
 
-Remotion (React + TypeScript), 1080×1920, 30 fps, H.264 + AAC. Durée calée sur la voix off.
+Remotion (React + TypeScript), 1080×1920, 30 i/s, H.264 + AAC. Voix off edge-tts `fr-FR-HenriNeural`,
+minutage mot par mot (WordBoundary). Règles de montage : `.claude/skills/monteur-reels/SKILL.md`.
 
-## Faire une vidéo
+## Faire un reel
 
-1. Copier `src/videos/bonne-affaire.ts` en `src/videos/<id>.ts` : texte exact de la voix, séquences, chiffres, sources.
-   Chaque séquence et chaque élément démarre sur un **cue** = extrait exact du texte.
-2. L'ajouter dans `src/videos/index.ts`.
-3. Générer la voix off (+ timing mot par mot) : `npm run voice -- <id>`
-   → `public/<id>/voiceover.mp3` et `public/<id>/words.json`
-   (ElevenLabs si `ELEVENLABS_API_KEY` existe, sinon edge-tts).
-4. Rendre : `npm run render -- <id>` → `out/<id>.mp4`
-   (si `assets/music.mp3` existe, il est mixé très bas sous la voix).
-5. Vérifier : `npm run check -- <id>` (ffprobe + 1 image par séquence dans `out/frames/`).
+1. Copier `src/videos/frais-caches.ts` en `src/videos/<id>.ts` (texte exact, séquences, sources) et l'ajouter
+   dans `src/videos/index.ts`.
+2. `npm run voice -- <id>` → `public/<id>/voiceover.mp3` + `words.json`
+3. `npm run rythme -- <id>` → règles avant rendu (« TROP LONG » si > 1,5 s sans nouvel élément)
+4. `npm run render -- <id>` → `out/<id>.mp4`, son normalisé à -14 LUFS
+5. `npm run check -- <id>` → contrôle format/son/règles, planche `out/<id>-planche.jpg`, `out/<id>-sources.md`
 
 Prévisualiser : `npm run studio`.
 
-## Prérequis
+## Installation (Windows)
 
-Node ≥ 18, ffmpeg, Python 3 + `pip install edge-tts`. Pour edge-tts dans un environnement cloud, l'hôte
-`speech.platform.bing.com` doit être autorisé.
+Outils globaux (à installer une fois, si absents) :
+
+```
+winget install OpenJS.NodeJS.LTS
+winget install Python.Python.3.12
+winget install Gyan.FFmpeg
+```
+
+Puis, dans ce dossier uniquement :
+
+```
+npm ci
+py -m venv .venv
+.venv\Scripts\pip install edge-tts
+```

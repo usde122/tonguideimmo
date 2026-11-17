@@ -2,9 +2,9 @@
 
 Usage : python3 scripts/tts.py job.json
 
-Le texte est découpé en segments (phrases, et virgules qui suivent un chiffre)
-générés séparément puis recollés avec de courts silences : c'est ce qui crée
-les « petites pauses après les chiffres ». Le timing de chaque mot vient du
+Le texte est découpé en segments (phrases, « : », et virgules qui suivent un
+chiffre) générés séparément puis recollés. En fin de phrase, le silence est
+coupé 0,2 s après le dernier mot ; après « : » ou un chiffre, une courte pause. Le timing de chaque mot vient du
 fournisseur (WordBoundary edge-tts ou alignement ElevenLabs).
 
 Fournisseur : ElevenLabs si ELEVENLABS_API_KEY existe, sinon edge-tts.
@@ -23,10 +23,14 @@ import urllib.request
 import wave
 
 SAMPLE_RATE = 44100
-GAP_SENTENCE = 0.30  # après . ? !
-GAP_COLON = 0.22  # après « : »
-GAP_NUMBER = 0.16  # après une virgule qui suit un chiffre
-GAP_PARAGRAPH = 0.42  # entre deux paragraphes
+# Règle de la skill : en fin de phrase (. ? ! et fin de paragraphe), on garde
+# exactement 0,2 s après la fin du dernier mot (WordBoundary), puis on enchaîne.
+SENTENCE_TAIL = 0.20
+# Pauses internes à une phrase (après « : » ou après un chiffre suivi d'une virgule).
+INNER_TAIL = 0.07
+GAP_COLON = 0.15
+GAP_NUMBER = 0.12
+LOUDNESS_LUFS = -14  # voix normalisée à -14 LUFS (le rendu final est re-normalisé)
 
 # Une virgule précédée (à 3 mots près) de l'un de ces mots = fin d'un chiffre.
 NUMBER_WORDS = {"cent", "cents", "mille", "euros", "jours", "mois", "vingtsix"}
@@ -38,11 +42,11 @@ def norm(s: str) -> str:
 
 
 def segment(paragraphs):
-    """Retourne [(texte, silence_après)]."""
+    """Retourne [(texte, garde_apres_dernier_mot, silence_ajoute)]."""
     segs = []
-    for p_i, para in enumerate(paragraphs):
+    for para in paragraphs:
         sentences = re.split(r"(?<=[.?!:])\s+", para.strip())
-        for s_i, sent in enumerate(sentences):
+        for sent in sentences:
             # Coupe aux virgules précédées d'un mot-chiffre (« neuf pour cent, »).
             parts = re.split(r"(?<=,)\s+", sent)
             buf = ""
@@ -50,15 +54,14 @@ def segment(paragraphs):
                 buf = (buf + " " + part).strip()
                 last_words = {norm(w) for w in buf.rstrip(",").split()[-3:]}
                 if part.endswith(",") and last_words & NUMBER_WORDS:
-                    segs.append([buf, GAP_NUMBER])
+                    segs.append((buf, INNER_TAIL, GAP_NUMBER))
                     buf = ""
             if buf:
-                gap = GAP_COLON if buf.endswith(":") else GAP_SENTENCE
-                segs.append([buf, gap])
-        if segs:
-            segs[-1][1] = GAP_PARAGRAPH
-    segs[-1][1] = 0.0
-    return [tuple(s) for s in segs]
+                if buf.endswith(":"):
+                    segs.append((buf, INNER_TAIL, GAP_COLON))
+                else:
+                    segs.append((buf, SENTENCE_TAIL, 0.0))
+    return segs
 
 
 # ---------------------------------------------------------------- fournisseurs
@@ -203,7 +206,7 @@ def main():
     all_words = []
     bps = 2  # 16 bits mono
     with tempfile.TemporaryDirectory() as tmp:
-        for n, (text, gap) in enumerate(segs):
+        for n, (text, keep, gap) in enumerate(segs):
             print(f"  [{n + 1}/{len(segs)}] {text}")
             if key:
                 audio, pw = eleven_segment(text, voice_id, key)
@@ -218,16 +221,15 @@ def main():
                         print(f"    réessai ({e})", file=sys.stderr)
             raw = decode_pcm(audio, tmp)
             seg_words = align(text, pw)
-            # Coupe le silence en tête (sauf 1er segment) et en queue.
-            head = 0.0 if n == 0 else max(0.0, seg_words[0]["start"] - 0.03)
-            tail = min(len(raw) / bps / SAMPLE_RATE, seg_words[-1]["end"] + 0.07)
+            # Coupe le silence en tête (accroche immédiate) et en queue (0,2 s en fin de phrase).
+            head = max(0.0, seg_words[0]["start"] - 0.03)
+            tail = min(len(raw) / bps / SAMPLE_RATE, seg_words[-1]["end"] + keep)
             a, b = int(head * SAMPLE_RATE) * bps, int(tail * SAMPLE_RATE) * bps
             offset = len(pcm) / bps / SAMPLE_RATE - head
             pcm += raw[a:b]
             for w in seg_words:
                 all_words.append({"text": w["text"], "start": round(w["start"] + offset, 3), "end": round(w["end"] + offset, 3)})
             pcm += b"\x00\x00" * int(gap * SAMPLE_RATE)
-        pcm += b"\x00\x00" * int(0.25 * SAMPLE_RATE)  # petite respiration finale
 
         wav_path = os.path.join(tmp, "voice.wav")
         with wave.open(wav_path, "wb") as w:
@@ -238,7 +240,7 @@ def main():
         mp3_path = os.path.join(out_dir, "voiceover.mp3")
         subprocess.run([
             "ffmpeg", "-v", "error", "-y", "-i", wav_path,
-            "-af", "loudnorm=I=-15:TP=-1.5:LRA=9", "-ar", str(SAMPLE_RATE),
+            "-af", f"loudnorm=I={LOUDNESS_LUFS}:TP=-1.5:LRA=9", "-ar", str(SAMPLE_RATE),
             "-c:a", "libmp3lame", "-b:a", "192k", mp3_path,
         ], check=True)
 

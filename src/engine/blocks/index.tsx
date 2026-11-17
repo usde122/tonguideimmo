@@ -3,7 +3,7 @@ import {Easing, interpolate, spring, useVideoConfig} from 'remotion';
 import {useBeatFrame, useCue} from '../context';
 import {colors, formatNumber, toneColor} from '../theme';
 import type {Block} from '../types';
-import {HouseIcon} from './icons';
+import {HouseIcon, Icon} from './icons';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -450,7 +450,7 @@ const PriceDrop: React.FC<Extract<Block, {kind: 'priceDrop'}>> = (b) => {
 };
 
 // ------------------------------------------------------------------ cta
-const Cta: React.FC<Extract<Block, {kind: 'cta'}>> = ({button, caption}) => {
+const Cta: React.FC<Extract<Block, {kind: 'cta'}>> = ({button, caption, symbol = 'plus'}) => {
   const f = useBeatFrame();
   const p = useSpring(0, 200);
   const pulse = f > 10 ? 1 + 0.05 * Math.sin((f - 10) / 3.2) : 1;
@@ -496,12 +496,100 @@ const Cta: React.FC<Extract<Block, {kind: 'cta'}>> = ({button, caption}) => {
               lineHeight: 1,
             }}
           >
-            +
+            {symbol === 'arrow' ? <Icon name="arrow" size={46} color={colors.accent} /> : '+'}
           </span>
           {button}
         </div>
       </div>
       <div style={{fontSize: 56, fontWeight: 800, color: colors.ink, marginTop: 44}}>{caption}</div>
+    </div>
+  );
+};
+
+// ------------------------------------------------------------------ icon
+const IconBlock: React.FC<Extract<Block, {kind: 'icon'}>> = ({name, size = 300, tone, label}) => {
+  const f = useBeatFrame();
+  const p = useSpring(0, 220);
+  const wobble = f > 8 ? Math.sin((f - 8) / 9) * 2.5 : 0;
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26}}>
+      <div
+        style={{
+          opacity: interpolate(p, [0, 0.3], [0, 1], clamp),
+          transform: `scale(${interpolate(p, [0, 1], [0.3, 1])}) rotate(${wobble}deg)`,
+        }}
+      >
+        <Icon name={name} size={size} color={toneColor(tone ?? 'accent')} />
+      </div>
+      {label ? (
+        <div style={{...appear(p, 30), fontSize: 62, fontWeight: 900, color: colors.ink, textAlign: 'center'}}>{label}</div>
+      ) : null}
+    </div>
+  );
+};
+
+// ------------------------------------------------------------------ line
+const Line: React.FC<Extract<Block, {kind: 'line'}>> = ({label, value, tone, valueAt}) => {
+  const p = useSpring(0, 240);
+  const vAt = useCue(valueAt, 0);
+  const vp = useSpring(vAt, 300);
+  return (
+    <div
+      style={{
+        opacity: interpolate(p, [0, 0.3], [0, 1], clamp),
+        transform: `translateX(${(1 - p) * -120}px)`,
+        width: 840,
+        boxSizing: 'border-box',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 30,
+        background: colors.card,
+        borderLeft: `16px solid ${toneColor(tone ?? 'accent')}`,
+        borderRadius: 20,
+        padding: '26px 36px',
+        boxShadow: '0 8px 0 rgba(11,31,58,0.08)',
+      }}
+    >
+      <span style={{fontSize: 50, fontWeight: 800, color: colors.ink, lineHeight: 1.1, whiteSpace: 'nowrap'}}>{label}</span>
+      {value ? (
+        <span
+          style={{
+            fontSize: 58,
+            fontWeight: 900,
+            color: toneColor(tone ?? 'accent'),
+            whiteSpace: 'nowrap',
+            opacity: interpolate(vp, [0, 0.3], [0, 1], clamp),
+            transform: `scale(${interpolate(vp, [0, 1], [1.8, 1])})`,
+          }}
+        >
+          {value}
+        </span>
+      ) : null}
+    </div>
+  );
+};
+
+// ------------------------------------------------------------------ stamp
+const Stamp: React.FC<Extract<Block, {kind: 'stamp'}>> = ({text, tone = 'loss'}) => {
+  const p = useSpring(0, 300);
+  const c = toneColor(tone);
+  return (
+    <div
+      style={{
+        opacity: interpolate(p, [0, 0.2], [0, 1], clamp),
+        transform: `rotate(-7deg) scale(${interpolate(p, [0, 1], [1.6, 1])})`,
+        border: `10px solid ${c}`,
+        color: c,
+        borderRadius: 22,
+        padding: '14px 40px',
+        fontSize: 76,
+        fontWeight: 900,
+        letterSpacing: 2,
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {text}
     </div>
   );
 };
@@ -530,5 +618,11 @@ export const BlockView: React.FC<{block: Block}> = ({block}) => {
       return <PriceDrop {...block} />;
     case 'cta':
       return <Cta {...block} />;
+    case 'icon':
+      return <IconBlock {...block} />;
+    case 'line':
+      return <Line {...block} />;
+    case 'stamp':
+      return <Stamp {...block} />;
   }
 };

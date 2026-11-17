@@ -19,5 +19,13 @@ const job = {
 };
 const jobPath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'tgi-')), 'job.json');
 fs.writeFileSync(jobPath, JSON.stringify(job));
-const r = spawnSync('python3', ['scripts/tts.py', jobPath], {stdio: 'inherit'});
+// Python de l'environnement local .venv (Windows : .venv\Scripts\python.exe).
+const venvPython =
+  process.platform === 'win32' ? path.resolve('.venv', 'Scripts', 'python.exe') : path.resolve('.venv', 'bin', 'python');
+if (!fs.existsSync(venvPython)) {
+  console.error('Environnement Python absent. Crée-le dans ce dossier :');
+  console.error(process.platform === 'win32' ? '  py -m venv .venv && .venv\\Scripts\\pip install edge-tts' : '  python3 -m venv .venv && .venv/bin/pip install edge-tts');
+  process.exit(1);
+}
+const r = spawnSync(venvPython, ['scripts/tts.py', jobPath], {stdio: 'inherit'});
 process.exit(r.status ?? 1);
