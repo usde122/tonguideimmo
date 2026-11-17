@@ -1,6 +1,6 @@
 # Ton Guide Immo — reels TikTok / Instagram / Snapchat / Facebook
 
-Remotion (React + TypeScript), 1080×1920, 30 i/s, H.264 + AAC. Voix off edge-tts `fr-FR-HenriNeural`,
+Remotion (React + TypeScript), 1080×1920, 30 i/s, H.264 + AAC. Voix off edge-tts `fr-FR-DeniseNeural` (+14 %),
 minutage mot par mot (WordBoundary). Règles de montage : `.claude/skills/monteur-reels/SKILL.md`.
 
 ## Faire un reel

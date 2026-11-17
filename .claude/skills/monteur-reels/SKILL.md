@@ -1,11 +1,11 @@
 ---
 name: monteur-reels
-description: Monteur vidéo de « Ton Guide Immo ». À utiliser pour CHAQUE reel / TikTok / Short / vidéo verticale du média (immobilier, achat, crédit, frais, DPE…) — écriture du texte, voix off edge-tts fr-FR-HenriNeural, animation Remotion 1080×1920, contrôle et livraison dans out/. Applique les règles de rythme, de sous-titres, de son et de sources chiffrées.
+description: Monteur vidéo de « Ton Guide Immo ». À utiliser pour CHAQUE reel / TikTok / Short / vidéo verticale du média (immobilier, achat, crédit, frais, DPE…) — écriture du texte, voix off edge-tts fr-FR-DeniseNeural, animation Remotion 1080×1920, contrôle et livraison dans out/. Applique les règles de rythme, de sous-titres, de son et de sources chiffrées.
 ---
 
 # Monteur reels — Ton Guide Immo
 
-Outils du dossier : Remotion (animation), edge-tts dans `.venv` (voix `fr-FR-HenriNeural`, minutage mot par mot
+Outils du dossier : Remotion (animation), edge-tts dans `.venv` (voix `fr-FR-DeniseNeural` à `+14%`, minutage mot par mot
 WordBoundary), ffmpeg (son, contrôle, planche). Format : vertical 1080×1920, 30 i/s, H.264 + AAC.
 
 ## Règles (toutes obligatoires)
@@ -39,7 +39,7 @@ WordBoundary), ffmpeg (son, contrôle, planche). Format : vertical 1080×1920, 3
 ## Méthode pour un nouveau reel
 
 1. **Sources d'abord** : chercher et lire les pages officielles, noter extraits et dates.
-2. **Texte** (30–40 s ≈ 110–125 mots à `+10%`) : accroche < 2 s → points numérotés (« Un : », « Deux : »…) →
+2. **Texte** (30–40 s ≈ 110–125 mots à `+14%`) : accroche < 2 s → points numérotés (« Un : », « Deux : »…) →
    fin imposée. Les nombres s'écrivent **en toutes lettres** dans le texte de la voix (« mille cinq cents euros »).
 3. **Données** : copier `src/videos/frais-caches.ts` en `src/videos/<id>.ts`, l'ajouter dans
    `src/videos/index.ts`. Une séquence par idée ; `clear: true` pour vider l'écran ; viser un élément toutes les
